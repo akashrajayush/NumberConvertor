@@ -8,8 +8,12 @@ function convertNumber() {
         return;
     }
 
-    const result = parseInt(number, fromBase).toString(toBase).toUpperCase();
-    document.getElementById("result").textContent = `Converted Number: ${result}`;
+    try {
+        const result = parseInt(number, fromBase).toString(toBase).toUpperCase();
+        document.getElementById("result").textContent = `Converted Number: ${result}`;
+    } catch (error) {
+        alert("Invalid number or base entered.");
+    }
 }
 
 function calculate() {
@@ -24,29 +28,41 @@ function calculate() {
         return;
     }
 
-    const decimalNum1 = parseInt(num1, base1);
-    const decimalNum2 = parseInt(num2, base2);
-    let result;
+    try {
+        const decimalNum1 = parseInt(num1, base1);
+        const decimalNum2 = parseInt(num2, base2);
 
-    switch (operation) {
-        case "add":
-            result = decimalNum1 + decimalNum2;
-            break;
-        case "subtract":
-            result = decimalNum1 - decimalNum2;
-            break;
-        case "multiply":
-            result = decimalNum1 * decimalNum2;
-            break;
-        case "divide":
-            if (decimalNum2 === 0) {
-                alert("Cannot divide by zero.");
+        if (isNaN(decimalNum1) || isNaN(decimalNum2)) {
+            alert("Invalid number entered for the given base.");
+            return;
+        }
+
+        let result;
+        switch (operation) {
+            case "add":
+                result = decimalNum1 + decimalNum2;
+                break;
+            case "subtract":
+                result = decimalNum1 - decimalNum2;
+                break;
+            case "multiply":
+                result = decimalNum1 * decimalNum2;
+                break;
+            case "divide":
+                if (decimalNum2 === 0) {
+                    alert("Cannot divide by zero.");
+                    return;
+                }
+                result = decimalNum1 / decimalNum2;
+                break;
+            default:
+                alert("Invalid operation selected.");
                 return;
-            }
-            result = decimalNum1 / decimalNum2;
-            break;
-    }
+        }
 
-    const resultBase = base1; // Assuming result in the base of Number 1
-    document.getElementById("calcResult").textContent = `Result: ${result.toString(resultBase).toUpperCase()}`;
+        const resultBase = base1; // Assuming the result will be in the base of the first number
+        document.getElementById("calcResult").textContent = `Result: ${result.toString(resultBase).toUpperCase()}`;
+    } catch (error) {
+        alert("An error occurred while calculating. Please check your inputs.");
+    }
 }
