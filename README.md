@@ -45,26 +45,6 @@ The **Number Base Converter** is a user-friendly web application designed to con
 
 ---
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repository/number-base-converter.git
-   ```
-2. Open `index.html` in your preferred web browser.
-
----
-
-## Contributing
-Contributions are welcome! If you have ideas for features or optimizations:
-1. Fork the repository.
-2. Create a feature branch:
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-3. Commit your changes and open a pull request.
-
----
-
 ## Future Enhancements
 - Add support for additional number bases.
 - Provide real-time conversion as users type.
