@@ -32,7 +32,7 @@ The **Number Base Converter** is a user-friendly web application designed to con
 ---
 
 ## Screenshots
-![Number Base Converter Interface](https://via.placeholder.com/800x400?text=Screenshot+Coming+Soon)  
+![Number Base Converter Interface]([https://via.placeholder.com/800x400?text=Screenshot+Coming+Soon](https://drive.google.com/file/d/1Tn2tkZ8bpXg8tw_vt1QEbzJHftaawb3c/view?usp=sharing))  
 *(Replace this placeholder with an actual screenshot of your application.)*
 
 ---
