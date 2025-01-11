@@ -48,15 +48,36 @@ button:hover {
     color: #007bff;
 }
 
-h3 {
+.history {
     margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
 }
 
-ul {
+.history h2 {
+    color: #222;
+}
+
+.history h3 {
+    color: #555;
+}
+
+.history ul {
     list-style-type: none;
-    padding: 0;
+    padding-left: 0;
 }
 
-li {
+.history li {
     padding: 5px 0;
+}
+
+.history button {
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+}
+
+.history button:hover {
+    background-color: #c0392b;
 }
