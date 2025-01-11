@@ -12,6 +12,7 @@ h1 {
 }
 
 .converter, .calculator {
+    width: 48%;
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ccc;
