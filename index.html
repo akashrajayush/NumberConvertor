@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Base Converter</title>
+    <title>Number Base Converter and Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -32,6 +32,44 @@
 
         <div class="result" id="result"></div>
     </div>
+
+    <div class="calculator">
+        <h1>Base Calculator</h1>
+        <label for="num1">Number 1:</label>
+        <input type="text" id="num1" placeholder="Enter first number" />
+
+        <label for="base1">Base of Number 1:</label>
+        <select id="base1">
+            <option value="10">Decimal</option>
+            <option value="2">Binary</option>
+            <option value="8">Octal</option>
+            <option value="16">Hexadecimal</option>
+        </select>
+
+        <label for="num2">Number 2:</label>
+        <input type="text" id="num2" placeholder="Enter second number" />
+
+        <label for="base2">Base of Number 2:</label>
+        <select id="base2">
+            <option value="10">Decimal</option>
+            <option value="2">Binary</option>
+            <option value="8">Octal</option>
+            <option value="16">Hexadecimal</option>
+        </select>
+
+        <label for="operation">Operation:</label>
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+
+        <button onclick="calculate()">Calculate</button>
+
+        <div class="result" id="calcResult"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
