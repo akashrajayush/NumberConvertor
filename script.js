@@ -1,5 +1,6 @@
+// Initialize empty arrays to store history
 let conversionHistory = [];
-let calcHistory = [];
+let calculationHistory = [];
 
 function convertNumber() {
     const number = document.getElementById("number").value;
@@ -15,28 +16,12 @@ function convertNumber() {
         const result = parseInt(number, fromBase).toString(toBase).toUpperCase();
         document.getElementById("result").textContent = `Converted Number: ${result}`;
 
-        // Save to history
-        const historyEntry = `${number} (Base ${fromBase}) to (Base ${toBase}) = ${result}`;
-        conversionHistory.push(historyEntry);
+        // Add the conversion result to the history
+        conversionHistory.push(`${number} (${fromBase}) → ${result} (${toBase})`);
         updateHistory();
     } catch (error) {
         alert("Invalid number or base entered.");
     }
-}
-
-function updateHistory() {
-    const historyList = document.getElementById("historyList");
-    historyList.innerHTML = "";
-    conversionHistory.forEach(entry => {
-        const listItem = document.createElement("li");
-        listItem.textContent = entry;
-        historyList.appendChild(listItem);
-    });
-}
-
-function clearHistory() {
-    conversionHistory = [];
-    updateHistory();
 }
 
 function calculate() {
@@ -89,26 +74,40 @@ function calculate() {
         const resultInBase1 = decimalResult.toString(base1).toUpperCase();
         document.getElementById("calcResult").textContent = `Result (${base1}-base): ${resultInBase1}`;
 
-        // Save to calculation history
-        const calcHistoryEntry = `${num1} (Base ${base1}) ${operation} ${num2} (Base ${base2}) = ${resultInBase1}`;
-        calcHistory.push(calcHistoryEntry);
-        updateCalcHistory();
+        // Add the calculation result to the history
+        calculationHistory.push(`${num1} (${base1}) ${operation} ${num2} (${base2}) = ${resultInBase1}`);
+        updateHistory();
     } catch (error) {
         alert("An error occurred while calculating. Please check your inputs.");
     }
 }
 
-function updateCalcHistory() {
-    const calcHistoryList = document.getElementById("calcHistoryList");
-    calcHistoryList.innerHTML = "";
-    calcHistory.forEach(entry => {
-        const listItem = document.createElement("li");
-        listItem.textContent = entry;
-        calcHistoryList.appendChild(listItem);
+function updateHistory() {
+    // Update the history display for both conversion and calculation
+    const conversionHistoryList = document.getElementById("conversionHistory");
+    const calculationHistoryList = document.getElementById("calculationHistory");
+
+    // Clear previous history
+    conversionHistoryList.innerHTML = "";
+    calculationHistoryList.innerHTML = "";
+
+    // Append new history items
+    conversionHistory.forEach(entry => {
+        const li = document.createElement("li");
+        li.textContent = entry;
+        conversionHistoryList.appendChild(li);
+    });
+
+    calculationHistory.forEach(entry => {
+        const li = document.createElement("li");
+        li.textContent = entry;
+        calculationHistoryList.appendChild(li);
     });
 }
 
-function clearCalcHistory() {
-    calcHistory = [];
-    updateCalcHistory();
+function clearHistory() {
+    // Clear both conversion and calculation histories
+    conversionHistory = [];
+    calculationHistory = [];
+    updateHistory();
 }
