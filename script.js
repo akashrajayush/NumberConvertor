@@ -1,3 +1,6 @@
+let conversionHistory = [];
+let calcHistory = [];
+
 function convertNumber() {
     const number = document.getElementById("number").value;
     const fromBase = parseInt(document.getElementById("fromBase").value);
@@ -11,9 +14,29 @@ function convertNumber() {
     try {
         const result = parseInt(number, fromBase).toString(toBase).toUpperCase();
         document.getElementById("result").textContent = `Converted Number: ${result}`;
+
+        // Save to history
+        const historyEntry = `${number} (Base ${fromBase}) to (Base ${toBase}) = ${result}`;
+        conversionHistory.push(historyEntry);
+        updateHistory();
     } catch (error) {
         alert("Invalid number or base entered.");
     }
+}
+
+function updateHistory() {
+    const historyList = document.getElementById("historyList");
+    historyList.innerHTML = "";
+    conversionHistory.forEach(entry => {
+        const listItem = document.createElement("li");
+        listItem.textContent = entry;
+        historyList.appendChild(listItem);
+    });
+}
+
+function clearHistory() {
+    conversionHistory = [];
+    updateHistory();
 }
 
 function calculate() {
@@ -65,7 +88,27 @@ function calculate() {
         // Convert the result back to the base of the first number
         const resultInBase1 = decimalResult.toString(base1).toUpperCase();
         document.getElementById("calcResult").textContent = `Result (${base1}-base): ${resultInBase1}`;
+
+        // Save to calculation history
+        const calcHistoryEntry = `${num1} (Base ${base1}) ${operation} ${num2} (Base ${base2}) = ${resultInBase1}`;
+        calcHistory.push(calcHistoryEntry);
+        updateCalcHistory();
     } catch (error) {
         alert("An error occurred while calculating. Please check your inputs.");
     }
+}
+
+function updateCalcHistory() {
+    const calcHistoryList = document.getElementById("calcHistoryList");
+    calcHistoryList.innerHTML = "";
+    calcHistory.forEach(entry => {
+        const listItem = document.createElement("li");
+        listItem.textContent = entry;
+        calcHistoryList.appendChild(listItem);
+    });
+}
+
+function clearCalcHistory() {
+    calcHistory = [];
+    updateCalcHistory();
 }
