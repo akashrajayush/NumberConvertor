@@ -29,6 +29,7 @@ function calculate() {
     }
 
     try {
+        // Convert inputs to decimal
         const decimalNum1 = parseInt(num1, base1);
         const decimalNum2 = parseInt(num2, base2);
 
@@ -37,31 +38,33 @@ function calculate() {
             return;
         }
 
-        let result;
+        // Perform the selected operation
+        let decimalResult;
         switch (operation) {
             case "add":
-                result = decimalNum1 + decimalNum2;
+                decimalResult = decimalNum1 + decimalNum2;
                 break;
             case "subtract":
-                result = decimalNum1 - decimalNum2;
+                decimalResult = decimalNum1 - decimalNum2;
                 break;
             case "multiply":
-                result = decimalNum1 * decimalNum2;
+                decimalResult = decimalNum1 * decimalNum2;
                 break;
             case "divide":
                 if (decimalNum2 === 0) {
                     alert("Cannot divide by zero.");
                     return;
                 }
-                result = decimalNum1 / decimalNum2;
+                decimalResult = Math.floor(decimalNum1 / decimalNum2); // Integer division
                 break;
             default:
                 alert("Invalid operation selected.");
                 return;
         }
 
-        const resultBase = base1; // Assuming the result will be in the base of the first number
-        document.getElementById("calcResult").textContent = `Result: ${result.toString(resultBase).toUpperCase()}`;
+        // Convert the result back to the base of the first number
+        const resultInBase1 = decimalResult.toString(base1).toUpperCase();
+        document.getElementById("calcResult").textContent = `Result (${base1}-base): ${resultInBase1}`;
     } catch (error) {
         alert("An error occurred while calculating. Please check your inputs.");
     }
