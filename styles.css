@@ -1,56 +1,49 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
-}
-
-.converter {
-    background: #ffffff;
+    margin: 20px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-.converter h1 {
-    font-size: 24px;
+h1 {
+    font-size: 1.5em;
+    color: #222;
+}
+
+.converter, .calculator {
     margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
 }
 
-.converter label {
+label {
     display: block;
     margin: 10px 0 5px;
-    font-weight: bold;
 }
 
-.converter input, .converter select, .converter button {
+input, select, button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 4px;
 }
 
-.converter button {
+button {
     background-color: #007bff;
     color: white;
-    border: none;
     cursor: pointer;
 }
 
-.converter button:hover {
+button:hover {
     background-color: #0056b3;
 }
 
-.converter .result {
-    font-size: 18px;
-    color: #333;
+.result {
     margin-top: 10px;
+    font-weight: bold;
+    color: #007bff;
 }
