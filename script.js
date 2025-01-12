@@ -91,7 +91,7 @@ function updateHistory() {
     conversionHistoryList.innerHTML = "";
     calculationHistoryList.innerHTML = "";
 
-    // Append new history items
+    // Append new history item
     conversionHistory.forEach(entry => {
         const li = document.createElement("li");
         li.textContent = entry;
